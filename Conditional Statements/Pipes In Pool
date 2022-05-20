@@ -19,9 +19,7 @@ public class PipesInPool {
 
         if (littersPerHours <= pool) {
             System.out.printf("The pool is %.2f%% full. Pipe 1: %.2f%%. Pipe 2: %.2f%%.",percentPool, percentPipeOne, percentPipeTwo);
-        }
-
-        if (littersPerHours > pool) {
+        } else {
             System.out.printf("For %.2f hours the pool overflows with %.2f liters.",hours, overLiters);
         }
 
