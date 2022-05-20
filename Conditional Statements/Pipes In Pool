@@ -1,0 +1,29 @@
+package com.company;
+
+import java.util.Scanner;
+
+public class PipesInPool {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+
+        int pool = Integer.parseInt(scanner.nextLine());
+        int pipeOne = Integer.parseInt(scanner.nextLine());
+        int pipeTwo = Integer.parseInt(scanner.nextLine());
+        double hours = Double.parseDouble(scanner.nextLine());
+
+        double littersPerHours = (pipeOne * hours) + (pipeTwo * hours);
+        double percentPool = (littersPerHours / pool) * 100;
+        double percentPipeOne = ((pipeOne * hours) / littersPerHours) * 100;
+        double percentPipeTwo = ((pipeTwo * hours) / littersPerHours) * 100;
+        double overLiters = littersPerHours - pool;
+
+        if (littersPerHours <= pool) {
+            System.out.printf("The pool is %.2f%% full. Pipe 1: %.2f%%. Pipe 2: %.2f%%.",percentPool, percentPipeOne, percentPipeTwo);
+        }
+
+        if (littersPerHours > pool) {
+            System.out.printf("For %.2f hours the pool overflows with %.2f liters.",hours, overLiters);
+        }
+
+    }
+}
