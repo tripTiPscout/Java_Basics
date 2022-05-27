@@ -1,0 +1,45 @@
+package com.company;
+
+import java.util.Scanner;
+
+public class Dishwasher {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+
+        int preparationBottles = Integer.parseInt(scanner.nextLine());
+        String command = scanner.nextLine();
+
+        int preparationQuantity = preparationBottles * 750;
+        int counter = 1;
+        int plates = 0;
+        int pots = 0;
+        int usedPreparation = 0;
+        boolean preparationOver = false;
+
+        while (!command.equals("End")) {
+            int dishes = Integer.parseInt(command);
+            if (counter % 3 == 0) {
+                usedPreparation += (dishes * 15);
+                pots += dishes;
+            } else {
+                usedPreparation += (dishes * 5);
+                plates += dishes;
+            }
+            if (preparationQuantity < usedPreparation) {
+                preparationOver = true;
+                break;
+            }
+            counter++;
+            command = scanner.nextLine();
+        }
+
+        if (preparationOver) {
+            System.out.printf("Not enough detergent, %d ml. more necessary!", usedPreparation - preparationQuantity);
+        } else {
+            System.out.println("Detergent was enough!");
+            System.out.printf("%d dishes and %d pots were washed.\n", plates, pots);
+            System.out.printf("Leftover detergent %d ml.", preparationQuantity - usedPreparation);
+        }
+
+    }
+}
