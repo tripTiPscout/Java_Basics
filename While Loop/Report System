@@ -1,0 +1,57 @@
+package com.company;
+
+import java.util.Scanner;
+
+public class ReportSystem {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+
+        int expectedSum = Integer.parseInt(scanner.nextLine());
+        String command = scanner.nextLine();
+        
+        int counter = 0;
+        int sum = 0;
+        double midSumCash = 0;
+        int counterCash = 0;
+        double midSumCard = 0;
+        int counterCard = 0;
+        boolean sumEnough = false;
+
+        while (!command.equals("End")) {
+            counter++;
+            int prices = Integer.parseInt(command);
+            if (counter % 2 == 0) {
+                if (prices < 10) {
+                    System.out.println("Error in transaction!");
+                } else {
+                    System.out.println("Product sold!");
+                    sum += prices;
+                    midSumCard += prices;
+                    counterCard++;
+                }
+            } else {
+                if (prices > 100) {
+                    System.out.println("Error in transaction!");
+                } else {
+                    System.out.println("Product sold!");
+                    sum += prices;
+                    midSumCash += prices;
+                    counterCash++;
+                }
+            }
+            if (sum >= expectedSum) {
+                sumEnough = true;
+                break;
+            }
+            command = scanner.nextLine();
+        }
+
+        if (sumEnough) {
+            System.out.printf("Average CS: %.2f\n", midSumCash/counterCash);
+            System.out.printf("Average CC: %.2f", midSumCard/counterCard);
+        } else {
+            System.out.println("Failed to collect required money for charity.");
+        }
+
+    }
+}
