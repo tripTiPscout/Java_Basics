@@ -1,0 +1,45 @@
+package com.company;
+
+import java.util.Scanner;
+
+public class Vacation {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+
+        double tripMoney = Double.parseDouble(scanner.nextLine());
+        double availableMoney = Double.parseDouble(scanner.nextLine());
+
+        int daysCounter = 0;
+        int spendCounter = 0;
+        boolean cantSave = false;
+        double savedMoney = availableMoney;
+
+        while (savedMoney < tripMoney) {
+            String action = scanner.nextLine();
+            double moneyAction = Double.parseDouble(scanner.nextLine());
+            daysCounter++;
+            if (action.equals("save")) {
+                savedMoney += moneyAction;
+                spendCounter = 0;
+            } else if (action.equals("spend")) {
+                spendCounter++;
+                savedMoney -= moneyAction;
+                if (savedMoney < 0) {
+                    savedMoney = 0;
+                }
+            }
+            if (spendCounter == 5) {
+                cantSave = true;
+                break;
+            }
+        }
+
+        if (cantSave) {
+            System.out.println("You can't save the money.");
+            System.out.println(daysCounter);
+        } else {
+            System.out.printf("You saved the money for %d days.",daysCounter);
+        }
+
+    }
+}
