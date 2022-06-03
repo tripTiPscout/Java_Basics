@@ -1,0 +1,28 @@
+package com.company;
+
+import java.util.Scanner;
+
+public class Clock {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+
+        int hours = 0;
+        int minutes = 0;
+        int seconds = -1;
+
+        for (int i = 1; i <= 86400; i++) {
+            seconds++;
+            if (seconds == 60) {
+                minutes++; seconds = 0;
+            }
+            if (minutes == 60) {
+                hours++; minutes = 0;
+            }
+            if (hours == 24) {
+                hours = 0;
+            }
+            System.out.printf("%d : %d : %d\n",hours,minutes,seconds);
+        }
+
+    }
+}
