@@ -1,0 +1,41 @@
+package com.company;
+
+import java.util.Scanner;
+
+public class EqualPairs {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+
+        int pairs = Integer.parseInt(scanner.nextLine());
+
+        int firstNum = Integer.parseInt(scanner.nextLine());
+        int secondNum = Integer.parseInt(scanner.nextLine());
+        
+        int pairSum = firstNum + secondNum;
+        boolean isEqual = true;
+        int maxDiff = 0;
+
+        for (int i = 1; i <= pairs - 1; i++) {
+            int currentFirstNum = Integer.parseInt(scanner.nextLine());
+            int currentSecondNum = Integer.parseInt(scanner.nextLine());
+            int currentPairSum = currentFirstNum + currentSecondNum;
+            if (currentPairSum == pairSum) {
+                isEqual = true;
+            } else {
+                isEqual = false;
+            }
+            if (maxDiff < Math.abs(pairSum - currentPairSum)) {
+                maxDiff = Math.abs(pairSum - currentPairSum);
+            } else {
+                pairSum = currentPairSum;
+            }
+        }
+
+        if (isEqual) {
+            System.out.println("Yes, value=" + pairSum);
+        } else {
+            System.out.println("No, maxdiff=" + maxDiff);
+        }
+
+    }
+}
