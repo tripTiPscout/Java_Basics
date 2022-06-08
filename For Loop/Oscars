@@ -1,0 +1,36 @@
+package com.company;
+
+import java.util.Scanner;
+
+public class Oscars {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+
+        String name = scanner.nextLine();
+        double points = Double.parseDouble(scanner.nextLine());
+        int judge = Integer.parseInt(scanner.nextLine());
+
+        double pointsCounted = points;
+        boolean nominated = false;
+
+        for (int i = 1; i <= judge; i++) {
+            String judgeName = scanner.nextLine();
+            double judgePoints = Double.parseDouble(scanner.nextLine());;
+            int length = judgeName.length();
+            pointsCounted += (1.0 * length * judgePoints) / 2;
+            if (pointsCounted >= 1250.5) {
+                nominated = true;
+                break;
+            }
+        }
+
+        double diff = Math.abs(1250.5 - pointsCounted);
+
+        if (nominated) {
+            System.out.printf("Congratulations, %s got a nominee for leading role with %.1f!", name, pointsCounted);
+        } else {
+            System.out.printf("Sorry, %s you need %.1f more!", name, diff);
+        }
+
+    }
+}
