@@ -1,0 +1,41 @@
+package com.company;
+
+import java.util.Scanner;
+
+public class TrekkingMania {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+
+        int groupsCount = Integer.parseInt(scanner.nextLine());
+
+        int musala = 0;
+        int monblan = 0;
+        int kilimanjaro = 0;
+        int k2 = 0;
+        int everest = 0;
+        int peopleCount = 0;
+
+        for (int i = 1; i <= groupsCount; i++) {
+            int peopleInGroup = Integer.parseInt(scanner.nextLine());
+            peopleCount += peopleInGroup;
+            if (peopleInGroup <= 5) {
+                musala += peopleInGroup;
+            } else if (peopleInGroup <= 12) {
+                monblan += peopleInGroup;
+            } else if (peopleInGroup <= 25) {
+                kilimanjaro += peopleInGroup;
+            } else if (peopleInGroup <= 40) {
+                k2 += peopleInGroup;
+            } else {
+                everest += peopleInGroup;
+            }
+        }
+
+        System.out.printf("%.2f%%\n",(1.0 * musala / peopleCount * 100));
+        System.out.printf("%.2f%%\n",(1.0 * monblan / peopleCount * 100));
+        System.out.printf("%.2f%%\n",(1.0 * kilimanjaro / peopleCount * 100));
+        System.out.printf("%.2f%%\n",(1.0 * k2 / peopleCount * 100));
+        System.out.printf("%.2f%%",(1.0 * everest / peopleCount * 100));
+
+    }
+}
