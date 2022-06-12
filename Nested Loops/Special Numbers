@@ -1,0 +1,35 @@
+package com.company;
+
+import java.util.Scanner;
+
+public class SpecialNumbers {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+
+        int num = Integer.parseInt(scanner.nextLine());
+
+        for (int i = 1111; i <= 9999; i++) {
+            String currentNum = "" + i;
+            String special = "";
+            boolean notSpecial = false;
+            for (int j = 0; j < currentNum.length(); j++) {
+                int currentDigit = Integer.parseInt("" + currentNum.charAt(j));
+                if (currentDigit == 0) {
+                    notSpecial = true;
+                    break;
+                }
+                if (num % currentDigit == 0) {
+                    special = special + currentDigit + "";
+                } else {
+                    notSpecial = true;
+                    break;
+                }
+            }
+            if (notSpecial) {
+                continue;
+            }
+            System.out.print(i + " ");
+        }
+
+    }
+}
