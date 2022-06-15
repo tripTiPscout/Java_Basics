@@ -1,0 +1,33 @@
+package com.company;
+
+import java.util.Scanner;
+
+public class Repainting {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+
+        int nylon = Integer.parseInt(scanner.nextLine());
+        int paint = Integer.parseInt(scanner.nextLine());
+        int amb = Integer.parseInt(scanner.nextLine());
+        int hours = Integer.parseInt(scanner.nextLine());
+
+        double paintCount = paint * 1.1;
+        nylon += 2;
+
+        double nylonPrice = 1.5;
+        double paintPrice = 14.5;
+        double ambPrice = 5;
+        double bags = 0.4;
+
+        double materialsSum = (nylon * nylonPrice) + (paintCount * paintPrice) + (amb * ambPrice) + bags;
+
+        double oneHourMoney = materialsSum * 0.3;
+
+        double workersMoney = hours * oneHourMoney;
+
+        double totalSum = workersMoney + materialsSum;
+
+        System.out.printf("Total sum for repainting is: %.2f", totalSum);
+
+    }
+}
