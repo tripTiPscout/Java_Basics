@@ -1,0 +1,23 @@
+package com.company;
+
+import java.util.Scanner;
+
+public class Fishland {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+
+        double mackerelPrice = Double.parseDouble(scanner.nextLine());
+        double spratsPrice = Double.parseDouble(scanner.nextLine());
+        double bonitoKilograms = Double.parseDouble(scanner.nextLine());
+        double horseMackerelKilograms = Double.parseDouble(scanner.nextLine());
+        int musselsKilograms = Integer.parseInt(scanner.nextLine());
+
+        double bonitoPrice = mackerelPrice + (mackerelPrice * 0.6);
+        double horseMackerelPrice = spratsPrice + (spratsPrice * 0.8);
+
+        double sum = (bonitoKilograms * bonitoPrice) + (horseMackerelKilograms * horseMackerelPrice) + (musselsKilograms * 7.5);
+
+        System.out.printf("%.2f", sum);
+
+    }
+}
