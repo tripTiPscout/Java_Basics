@@ -1,0 +1,23 @@
+package com.company;
+
+import java.util.Scanner;
+
+public class TrainingLab {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+
+        double lengthHall = Double.parseDouble(scanner.nextLine());
+        double widthHall = Double.parseDouble(scanner.nextLine());
+
+        widthHall = (widthHall * 100) - 100;
+        lengthHall = lengthHall * 100;
+
+        double tableOnWidth = Math.floor(widthHall / 70);
+        double tableOnLength = Math.floor(lengthHall / 120);
+
+        double tableSum = tableOnWidth * tableOnLength - 3;
+
+        System.out.printf("%.0f", tableSum);
+
+    }
+}
