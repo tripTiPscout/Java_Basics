@@ -1,4 +1,4 @@
 * linguist-documentation=false
 * linguist-vendored
-/Loops* linguist-vendored=false
+For Loop/* linguist-vendored=false
 *.java linguist-detectable=true
