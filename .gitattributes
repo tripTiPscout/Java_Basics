@@ -2,3 +2,4 @@
 * linguist-vendored
 * linguist-vendored=false
 *.java linguist-detectable=true
+* linguist-language=Java
